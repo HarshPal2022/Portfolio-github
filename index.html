@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh Pal Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      width: 2px;
+      height: 100%;
+      background-color: #3182ce;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -0.55rem;
+      top: 0.25rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: #3182ce;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-white to-blue-100 text-gray-900">
+  <!-- Navigation -->
+  <header class="flex justify-between items-center p-6">
+    <div class="text-xl font-semibold">Harsh Pal</div>
+    <nav class="space-x-6">
+      <a href="#projects" class="hover:text-blue-600">PROJECTS</a>
+      <a href="#internships" class="hover:text-blue-600">INTERNSHIPS</a>
+      <a href="#about" class="hover:text-blue-600">ABOUT</a>
+      <a href="#education" class="hover:text-blue-600">EDUCATION</a>
+      <a href="#certifications" class="hover:text-blue-600">CERTIFICATIONS</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center justify-center p-10">
+    <div class="md:w-1/2 space-y-4">
+      <h1 class="text-2xl font-semibold">I'm Harsh Pal,</h1>
+      <p>
+        A Computer Science graduate with a specialization in Data Science, skilled in UI/UX and Web Development, with practical experience from internships and projects. I focus on building responsive, accessible, and scalable digital products.
+      </p>
+      <p class="font-bold">Currently exploring opportunities while enhancing my skills in Tableau.</p>
+      <button class="mt-4 px-4 py-2 bg-black text-white rounded flex items-center space-x-2">
+        <span>&#9993;</span>
+        <span>Contact me!</span>
+      </button>
+    </div>
+    <div class="md:w-1/3 mt-10 md:mt-0">
+      <img src="https://via.placeholder.com/300" alt="Harsh Pal" class="rounded-lg shadow-lg"/>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white p-10">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+      <img src="https://via.placeholder.com/300" class="rounded-md shadow" alt="Harsh Pal"/>
+      <div>
+        <h2 class="text-xl font-semibold mb-2">About Me</h2>
+        <p>I’m Harsh Pal, a Computer Science graduate from Pillai College, specializing in Data Science. I have hands-on experience through internships in web and UI/UX development, and I’m passionate about designing accessible and user-centric web experiences.</p>
+        <p class="mt-4">My toolset includes HTML, CSS, JavaScript, Tailwind CSS, MySQL, Selenium, and AWS. I enjoy crafting beautiful, functional interfaces and solving real-world problems with code.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="p-10 bg-gray-50">
+    <h2 class="text-xl font-semibold mb-6 text-center">Education</h2>
+    <div class="timeline max-w-3xl mx-auto">
+      <div class="timeline-item">
+        <h3 class="font-semibold">B.Sc in Computer Science</h3>
+        <p>Pillai College, Panvel | Mar 2024<br>Specialization: Data Science | CGPA: 8.4</p>
+      </div>
+      <div class="timeline-item">
+        <h3 class="font-semibold">Higher Secondary Education (HSC)</h3>
+        <p>Tilak Public School, Nerul | July 2021 | 83.6%</p>
+      </div>
+      <div class="timeline-item">
+        <h3 class="font-semibold">Senior Secondary Education (SSC)</h3>
+        <p>Tilak Public School, Nerul | May 2019 | 75.8%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="p-10">
+    <h2 class="text-xl font-semibold mb-6 text-center">Certifications</h2>
+    <ul class="list-disc max-w-3xl mx-auto pl-5 space-y-2">
+      <li>NodeJS Tutorial and Projects</li>
+      <li>Graphic Designing Proficiency Program</li>
+      <li>Machine Learning Training</li>
+      <li>Python Course</li>
+    </ul>
+  </section>
+
+  <!-- Internship Section -->
+  <section id="internships" class="p-10">
+    <h2 class="text-xl font-semibold mb-6 text-center">Internships</h2>
+    <div class="grid md:grid-cols-2 gap-10">
+      <div class="bg-white p-6 rounded shadow card">
+        <h3 class="font-semibold mb-2">Web Development Intern</h3>
+        <p class="mb-4 text-sm">Bharat Intern | May 10, 2023 – June 10, 2023</p>
+        <ul class="text-left list-disc pl-5 text-sm space-y-1">
+          <li>Built a portfolio using Tailwind CSS and Tailblock.</li>
+          <li>Created a Temperature Converter app using HTML, CSS, JS.</li>
+        </ul>
+      </div>
+      <div class="bg-white p-6 rounded shadow card">
+        <h3 class="font-semibold mb-2">UI/UX Development Intern</h3>
+        <p class="mb-4 text-sm">Astral Web Studio | Apr 1, 2024 – Sept 1, 2024</p>
+        <ul class="text-left list-disc pl-5 text-sm space-y-1">
+          <li>Designed responsive UI components in collaboration with UX teams.</li>
+          <li>Developed front-end using HTML, CSS, JS, Tailwind.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="p-10">
+    <h2 class="text-xl font-semibold mb-6 text-center">Projects</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white p-6 rounded shadow card">
+        <h3 class="font-semibold mb-2">AWS Project</h3>
+        <ul class="text-left list-disc pl-5 text-sm space-y-1">
+          <li>Hosted dynamic site using Amazon S3.</li>
+          <li>Connected MySQL with PHP & JSP via XAMPP.</li>
+        </ul>
+      </div>
+      <div class="bg-white p-6 rounded shadow card">
+        <h3 class="font-semibold mb-2">Software Testing</h3>
+        <ul class="text-left list-disc pl-5 text-sm space-y-1">
+          <li>Performed manual testing using Excel-based test cases.</li>
+          <li>Automated tests using Selenium and Eclipse.</li>
+        </ul>
+      </div>
+      <div class="bg-white p-6 rounded shadow card">
+        <h3 class="font-semibold mb-2">Meditation Android App</h3>
+        <ul class="text-left list-disc pl-5 text-sm space-y-1">
+          <li>Built in Android Studio using Java.</li>
+          <li>Features: start, stop, timer, volume control.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Socials -->
+  <footer class="p-6 text-center">
+    <div class="space-x-4 text-xl">
+      <a href="https://www.linkedin.com/in/harsh-pal-8b0b81257/" target="_blank">🔗</a>
+      <a href="#">🐱</a>
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+    </div>
+    <p class="mt-4">&copy; 2025 Harsh Pal</p>
+  </footer>
+</body>
+</html>
