@@ -1,185 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harsh Pal Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-    .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 1rem;
-      width: 2px;
-      height: 100%;
-      background-color: #3182ce;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-      padding-left: 1.5rem;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -0.55rem;
-      top: 0.25rem;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      background-color: #3182ce;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harsh Pal | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: #00bfff;
+        }
+
+        header h2 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: #111;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        #about img {
+            max-width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skills i {
+            font-size: 2rem;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .skills i:hover {
+            background: #00bfff;
+            color: #000;
+        }
+
+        .experience .exp-section {
+            margin-bottom: 30px;
+        }
+
+        .experience .job {
+            background: #1a1a1a;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .experience .job:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.3);
+            background-color: #2a2a2a;
+        }
+
+        .contact a {
+            margin: 0 10px;
+            color: #00bfff;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .education {
+            border-left: 4px solid #00bfff;
+            padding-left: 20px;
+        }
+
+        .education .edu-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, border-left 0.3s ease;
+        }
+
+        .education .edu-item:hover {
+            background-color: #1e1e1e;
+            border-left: 4px solid #33ccff;
+        }
+
+        .education .edu-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .resume-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00bfff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .resume-button:hover {
+            background-color: #009acd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #777;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-white to-blue-100 text-gray-900">
-  <!-- Navigation -->
-  <header class="flex justify-between items-center p-6">
-    <div class="text-xl font-semibold">Harsh Pal</div>
-    <nav class="space-x-6">
-      <a href="#projects" class="hover:text-blue-600">PROJECTS</a>
-      <a href="#internships" class="hover:text-blue-600">INTERNSHIPS</a>
-      <a href="#about" class="hover:text-blue-600">ABOUT</a>
-      <a href="#education" class="hover:text-blue-600">EDUCATION</a>
-      <a href="#certifications" class="hover:text-blue-600">CERTIFICATIONS</a>
+
+<body>
+    <header>
+        <h1>Harsh Pal</h1>
+        <h2 id="typing"></h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="flex flex-col md:flex-row items-center justify-center p-10">
-    <div class="md:w-1/2 space-y-4">
-      <h1 class="text-2xl font-semibold">I'm Harsh Pal,</h1>
-      <p>
-        A Computer Science graduate with a specialization in Data Science, skilled in UI/UX and Web Development, with practical experience from internships and projects. I focus on building responsive, accessible, and scalable digital products.
-      </p>
-      <p class="font-bold">Currently exploring opportunities while enhancing my skills in Tableau.</p>
-      <button class="mt-4 px-4 py-2 bg-black text-white rounded flex items-center space-x-2">
-        <span>&#9993;</span>
-        <span>Contact me!</span>
-      </button>
-    </div>
-    <div class="md:w-1/3 mt-10 md:mt-0">
-      <img src="https://via.placeholder.com/300" alt="Harsh Pal" class="rounded-lg shadow-lg"/>
-    </div>
-  </section>
+    <section id="about">
+        <div data-aos="fade-up" style="text-align: center;">
+            <img src="https://via.placeholder.com/200" alt="Harsh Pal" />
+            <h2>About Me</h2>
+            <p>I am Harsh Pal, a Computer Science graduate specialized in Data Science from Pillai College of Arts,
+                Commerce and Science. I have hands-on experience in Python, Java, data analysis, and cloud tools like
+                AWS. I'm passionate about creating meaningful insights from data and building reliable, scalable
+                systems. I am currently seeking entry-level roles in data analysis, software testing, or cloud services.
+            </p>
+            <a href="Resume.pdf" class="resume-button" download>Download Resume</a>
+            
+        </div>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="bg-white p-10">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
-      <img src="https://via.placeholder.com/300" class="rounded-md shadow" alt="Harsh Pal"/>
-      <div>
-        <h2 class="text-xl font-semibold mb-2">About Me</h2>
-        <p>I’m Harsh Pal, a Computer Science graduate from Pillai College, specializing in Data Science. I have hands-on experience through internships in web and UI/UX development, and I’m passionate about designing accessible and user-centric web experiences.</p>
-        <p class="mt-4">My toolset includes HTML, CSS, JavaScript, Tailwind CSS, MySQL, Selenium, and AWS. I enjoy crafting beautiful, functional interfaces and solving real-world problems with code.</p>
-      </div>
-    </div>
-  </section>
+    <section id="skills">
+        <h2 style="text-align:center;">Skills</h2>
+        <div class="skills" data-aos="fade-up">
+            <i class="fab fa-python" title="Python"></i>
+            <i class="fab fa-java" title="Java"></i>
+            <i class="fas fa-database" title="MySQL / SQL"></i>
+            <i class="fab fa-aws" title="AWS"></i>
+            <i class="fas fa-chart-line" title="Data Analysis"></i>
+            <i class="fas fa-vial" title="Software Testing"></i>
+        </div>
+    </section>
 
-  <!-- Education Section -->
-  <section id="education" class="p-10 bg-gray-50">
-    <h2 class="text-xl font-semibold mb-6 text-center">Education</h2>
-    <div class="timeline max-w-3xl mx-auto">
-      <div class="timeline-item">
-        <h3 class="font-semibold">B.Sc in Computer Science</h3>
-        <p>Pillai College, Panvel | Mar 2024<br>Specialization: Data Science | CGPA: 8.4</p>
-      </div>
-      <div class="timeline-item">
-        <h3 class="font-semibold">Higher Secondary Education (HSC)</h3>
-        <p>Tilak Public School, Nerul | July 2021 | 83.6%</p>
-      </div>
-      <div class="timeline-item">
-        <h3 class="font-semibold">Senior Secondary Education (SSC)</h3>
-        <p>Tilak Public School, Nerul | May 2019 | 75.8%</p>
-      </div>
-    </div>
-  </section>
+    <section id="education">
+        <h2 style="text-align:center;">Education</h2>
+        <div class="education" data-aos="fade-up">
+            <div class="edu-item">
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p>Pillai College of Arts, Commerce and Science, Panvel (Mar 2024)<br>Specialization: Data
+                    Science<br>CGPA: 8.4</p>
+            </div>
+            <div class="edu-item">
+                <h3>Higher Secondary Education (HSC)</h3>
+                <p>Tilak Public School, Nerul (July 2021)<br>Score: 83.6%</p>
+            </div>
+            <div class="edu-item">
+                <h3>Senior Secondary Education (SSC)</h3>
+                <p>Tilak Public School, Nerul (May 2019)<br>Score: 75.8%</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Certifications Section -->
-  <section id="certifications" class="p-10">
-    <h2 class="text-xl font-semibold mb-6 text-center">Certifications</h2>
-    <ul class="list-disc max-w-3xl mx-auto pl-5 space-y-2">
-      <li>NodeJS Tutorial and Projects</li>
-      <li>Graphic Designing Proficiency Program</li>
-      <li>Machine Learning Training</li>
-      <li>Python Course</li>
-    </ul>
-  </section>
+    <section id="experience">
+        <h2 style="text-align:center;">Experience</h2>
+        <div class="experience">
+            <div class="exp-section" data-aos="fade-up">
+                <h3>Internships</h3>
+                <div class="job">
+                    <h4>UI/UX Development Intern – Astral Web Studio (Apr 1, 2024 – Sept 1, 2024)</h4>
+                    <p>Collaborated with UI/UX Design and Development teams to create and implement user interfaces for
+                        digital products and websites.</p>
+                    <p>Translated wireframes and mockups into responsive designs using HTML, CSS, JavaScript, and
+                        Tailwind CSS.</p>
+                </div>
+                <div class="job">
+                    <h4>Web Development Intern – Bharat Intern (May 10, 2023 – June 10, 2023)</h4>
+                    <p>Developed a portfolio website and a temperature converter site using HTML, CSS, JavaScript, and
+                        Tailwind CSS.</p>
+                </div>
+            </div>
 
-  <!-- Internship Section -->
-  <section id="internships" class="p-10">
-    <h2 class="text-xl font-semibold mb-6 text-center">Internships</h2>
-    <div class="grid md:grid-cols-2 gap-10">
-      <div class="bg-white p-6 rounded shadow card">
-        <h3 class="font-semibold mb-2">Web Development Intern</h3>
-        <p class="mb-4 text-sm">Bharat Intern | May 10, 2023 – June 10, 2023</p>
-        <ul class="text-left list-disc pl-5 text-sm space-y-1">
-          <li>Built a portfolio using Tailwind CSS and Tailblock.</li>
-          <li>Created a Temperature Converter app using HTML, CSS, JS.</li>
-        </ul>
-      </div>
-      <div class="bg-white p-6 rounded shadow card">
-        <h3 class="font-semibold mb-2">UI/UX Development Intern</h3>
-        <p class="mb-4 text-sm">Astral Web Studio | Apr 1, 2024 – Sept 1, 2024</p>
-        <ul class="text-left list-disc pl-5 text-sm space-y-1">
-          <li>Designed responsive UI components in collaboration with UX teams.</li>
-          <li>Developed front-end using HTML, CSS, JS, Tailwind.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <div class="exp-section" data-aos="fade-up">
+                <h3>Projects</h3>
+                <div class="job">
+                    <h4>Meditation Android Application</h4>
+                    <p>Developed a Meditation App in Java using Android Studio with features like play, pause, timer,
+                        and volume control.
+                        Focused on intuitive design to enhance user experience.</p>
+                </div>
+                <div class="job">
+                    <h4>Software Testing Projects</h4>
+                    <p>Performed manual testing using Excel-based test cases and automated testing with Selenium IDE.
+                        Created automation scripts in Eclipse to streamline the testing process.</p>
+                </div>
+                <div class="job">
+                    <h4>Hosted Dynamic Website with Database</h4>
+                    <p>Built a dynamic, cross-platform website using PHP, JSP, HTML, and CSS with MySQL integration via
+                        XAMPP.
+                        Utilized Amazon S3 for efficient data storage and optimized performance for seamless user
+                        access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="p-10">
-    <h2 class="text-xl font-semibold mb-6 text-center">Projects</h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="bg-white p-6 rounded shadow card">
-        <h3 class="font-semibold mb-2">AWS Project</h3>
-        <ul class="text-left list-disc pl-5 text-sm space-y-1">
-          <li>Hosted dynamic site using Amazon S3.</li>
-          <li>Connected MySQL with PHP & JSP via XAMPP.</li>
-        </ul>
-      </div>
-      <div class="bg-white p-6 rounded shadow card">
-        <h3 class="font-semibold mb-2">Software Testing</h3>
-        <ul class="text-left list-disc pl-5 text-sm space-y-1">
-          <li>Performed manual testing using Excel-based test cases.</li>
-          <li>Automated tests using Selenium and Eclipse.</li>
-        </ul>
-      </div>
-      <div class="bg-white p-6 rounded shadow card">
-        <h3 class="font-semibold mb-2">Meditation Android App</h3>
-        <ul class="text-left list-disc pl-5 text-sm space-y-1">
-          <li>Built in Android Studio using Java.</li>
-          <li>Features: start, stop, timer, volume control.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <section id="contact">
+        <h2 style="text-align:center;">Contact Me</h2>
+        <div class="contact" style="text-align:center;">
+            <a href="mailto:harshpal@example.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/harshpal" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/harshpal" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
 
-  <!-- Footer / Socials -->
-  <footer class="p-6 text-center">
-    <div class="space-x-4 text-xl">
-      <a href="https://www.linkedin.com/in/harsh-pal-8b0b81257/" target="_blank">🔗</a>
-      <a href="#">🐱</a>
-      <a href="#">📸</a>
-      <a href="#">🐦</a>
-    </div>
-    <p class="mt-4">&copy; 2025 Harsh Pal</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Harsh Pal. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        const text = "Computer Science Graduate | Data Analyst | Python | AWS | Java";
+        let i = 0;
+        function typingEffect() {
+            if (i < text.length) {
+                document.getElementById("typing").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typingEffect, 50);
+            }
+        }
+        typingEffect();
+    </script>
 </body>
+
 </html>
